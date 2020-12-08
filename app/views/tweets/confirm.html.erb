@@ -1,0 +1,7 @@
+<h3>以下の内容で投稿しますか？</h3>
+<%= form_with(model: @tweet, local: true, url: create_or_update, method: select_method)do |form| %>
+  <%= form.hidden_field :content %>
+  <p>本文:<%= @tweet.content %></p>
+  <%= form.submit "投稿する" %>
+  <%= form.submit "やめる", name: 'back' %>
+<% end %>

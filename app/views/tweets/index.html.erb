@@ -1,0 +1,31 @@
+<!DOCTYEP html>
+<html lang="ja">
+<head>
+  <title>index</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+</head>
+  <body>
+    <header>
+      <h2>つぶやき一覧</h2>
+      <h1>ヘッダー topページとは</h1>
+    </header>
+    <p><%= notice %></p>
+    <table class = 'index_table'>
+      <tr class = >
+        <th>投稿内容</th>
+      </tr>
+      <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= tweet.content %></td>
+        <td><%= link_to '詳細', tweet_path(tweet.id) %></td>
+        <td><%= link_to '編集', edit_tweet_path(tweet.id) %></td>
+        <td><%= link_to '削除', tweet_path(tweet.id), method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+      <%= link_to '作成画面へ', new_tweet_path %>
+    <footer>
+      <p>フッター</p>
+    </footer>
+  </body>
+</html>
