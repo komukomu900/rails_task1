@@ -2,16 +2,15 @@
 <html lang="ja">
 <head>
   <title>index</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 </head>
   <body>
     <header>
+    　<h1>ヘッダー topページについての説明はどこにあるのか教えてほしい。</h1>
       <h2>つぶやき一覧</h2>
-      <h1>ヘッダー topページとは</h1>
     </header>
     <p><%= notice %></p>
-    <table class = 'index_table'>
-      <tr class = >
+    <table class = "index_table">
+      <tr>
         <th>投稿内容</th>
       </tr>
       <% @tweets.each do |tweet| %>
@@ -23,9 +22,11 @@
       </tr>
     <% end %>
     </table>
-      <%= link_to '作成画面へ', new_tweet_path %>
+    　<div class = "tweet">
+        <%= link_to '投稿画面へ', new_tweet_path %>
+      </div>
     <footer>
-      <p>フッター</p>
+      <p class="position">つぶやかないで。</p>
     </footer>
   </body>
 </html>
