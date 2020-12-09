@@ -16,7 +16,7 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
     if params[:back]
       render :new
     elsif @tweet.save
-      redirect_to new_tweet_path, notice:"登録しました"
+      redirect_to tweets_path, notice:"登録しました"
     elsif
       render :new
     end
