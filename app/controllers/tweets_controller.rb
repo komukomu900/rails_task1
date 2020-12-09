@@ -13,7 +13,9 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   def create
     @tweet = Tweet.create(tweet_params)
-    if @tweet.save
+    if params[:back]
+      render :new
+    elsif @tweet.save
       redirect_to new_tweet_path, notice:"登録しました"
     elsif
       render :new
@@ -21,6 +23,11 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   end
 
   def edit
+  end
+
+  def confirm
+    @tweet = Tweet.new(tweet_params)
+    @tweet.id = params[:id]
   end
 
   def update
@@ -35,11 +42,6 @@ before_action :set_tweet, only: [:show, :edit, :update, :destroy]
   def destroy
     @tweet.destroy
     redirect_to tweets_path, notice:"削除しました"
-  end
-
-  def confirm
-    @tweet = Tweet.new(tweet_params)
-    @tweet.id = params[:id]
   end
 
   private
